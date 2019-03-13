@@ -48,15 +48,19 @@ html {
     /* font-family: "Inter UI web","Helvetica Neue", Helvetica, arial, sans-serif; */
     font-family: "Droid Sans web", serif;
     color: #5C6366;
-    padding: 48px 24px 24px;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
-body {
-    max-width: 42em;
-    margin: 0 auto;
+*,
+*::before,
+*::after {
+    -webkit-box-sizing: inherit;
+    box-sizing: inherit;
 }
+
 
 /*
  * Remove text-shadow in selection highlight:
@@ -223,6 +227,65 @@ a:focus {
     margin-top: 4px;
 }
 
+@media(min-width: 992px) {
+    .c-author {
+display: block;
+    }
+    .c-author__image{
+        margin-bottom: 16px;
+    }
+}
+
+/*
+    Components: article
+ */
+
+ .c-article__header,
+ .c-article__body {
+     max-width: 1200px;
+     margin: 0 auto;
+     padding: 24px 24px 0;
+ }
+
+ .c-article__image {
+     margin-bottom: 0;
+ }
+
+@media (min-width: 768px){
+    .c-article__header{
+        padding: 48px 48px 24px;
+    }
+    .c-article__body{
+        padding: 24px 48px;
+    }
+    .c-article__author{
+        margin-bottom: 48px;
+    }
+}
+
+@media (min-width: 992px){
+    .c-article__body{
+        display: -webkit-flex;
+        display: -ms-flex;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .c-article__author{
+        width: 25%;
+        padding-right: 24px;
+    }
+    .c-article__content{
+        width: 75%;
+    }
+}
+
+/*
+    Utilities
+ */
+.u-max-width-sm{
+    max-width: 36em;
+}
+
 /* Small devices (landscape phones, 576px and up) */
 
 @media (min-width: 576px) {}
@@ -230,9 +293,7 @@ a:focus {
 /* Medium devices (tablets, 768px and up) */
 
 @media (min-width: 768px) {
-    html {
-        padding: 48px 48px 24px;
-    }
+
     h1 {
         font-size: 58px;
         line-height: 64px;
